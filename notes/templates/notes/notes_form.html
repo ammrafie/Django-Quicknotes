@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form method="POST" class="d-flex flex-column mx-auto" style="max-width: 400px;"> {% csrf_token %}
+        {{ form }}
+        <div>
+
+            <button type="submit" class="btn btn-primary my-4">Submit</button>
+            <a href="{% url 'notes.list' %}" class="btn btn-secondary">Cancel</a>
+        </div>
+    </form>
+    {% if form.errors %}
+        <div class="alert alert-danger my-5">
+            {{ form.errors.title.as_text }}
+        </div>
+    {% endif%}
+
+{% endblock content %}

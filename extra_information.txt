@@ -1,0 +1,49 @@
+Virtual Enviroment Name: tokyoenv
+
+Activate   :  source tokyoenv/Scripts/activate
+Deactivate :  deactivate
+
+
+Superuser
+username: admin
+password: django!!!
+
+Other user:
+username: newperson
+password: django!!!
+
+
+
+Common Commands:
+django-admin startproject Tokyo .
+django-admin startapp Home
+python manage.py runserver
+python manage.py migrate
+python manage.py createsuperuser
+python manage.py makemigrations
+
+
+Django Shell:
+    from notes.models import Notes
+    note = Notes.objects.get(pk=1)
+    note.title
+    Notes.objects.all()
+    Notes.objects.create(title="2ND Note", text="Aloha")
+    Notes.objects.filter(title__startswith="Berlin")
+    Notes.objects.filter(text__icontains="fun")
+    Notes.objects.exclude(title__icontains="Berlin")
+    Notes.objects.filter(text__icontains="is").exclude(title__icontains="Berlin")
+
+    from django.contrib.auth.models import User
+    user = User.objects.get(pk=1)
+    user.notes.count()
+    user.notes.all()
+
+Notes:
+    Django admin is highly configurable.
+    500 is Internal Server Error
+    404 page/file not found Err (Doesn't exist)
+
+
+Good Docs for Class-based View: https://ccbv.co.uk/projects/Django/3.1/
+
